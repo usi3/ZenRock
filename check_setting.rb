@@ -12,14 +12,14 @@ end
 
 # 設定ファイルが正しい状態にあるかどうか確認
 unless File.exist?("setting.json")
-  puts "setting.json doesn't exist"
-  exit
+	puts "setting.json doesn't exist"
+	exit
 end
 begin
-  config = JSON.parse(File.open('setting.json').read.toutf8)
+	config = JSON.parse(File.open('setting.json').read.toutf8)
 rescue JSON::ParserError => e
-  puts "JSON::ParserError #{e}"
-  exit
+	puts "JSON::ParserError #{e}"
+	exit
 end
 
 wrong = false
