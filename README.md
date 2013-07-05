@@ -1,9 +1,7 @@
-# ZenRock
+# ZenRock http://zenrock.tv
 TvRock, RecTestと連携して全番組自動録画を実現するためのソフトウェア
-
 （ZenRockは次世代テレビ研究のためのTVコンテンツの活用・分析用に開発されました）
 
-http://zenrock.tv
 
 ## 特徴
 * 地デジを全自動で全番組録画
