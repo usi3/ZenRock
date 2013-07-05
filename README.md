@@ -34,15 +34,74 @@ http://zenrock.tv
 
 ## 仕様
 
+番組ID()
+
+
+### check_setting.exe
+setting.json の設定が正しいかどうかを確認するためのプログラムです。
+TvRock のWeb番組表が有効になっていない場合にもエラーを出力します。
+これのソースコードは check_setting.rb として同梱してあります。
+
 ### start.bat
+check_setting.exe が終了コード0（エラーなし）で終了した場合に、
+以降のプログラム（main.exe, createthumbs.exe, tvbooker.exe, httpserver.exe, tvcollector.exe）を起動します。
 
 ### main.exe
+30分に1回の周期で次の処理を繰り返します。
+* <RecordDirPath>のあるドライブの使用容量が95%を超えた場合に、録画した番組を古いものから20件削除する
+* 録画が完了したTSファイルにメタ情報取得可能であることを表す印をつける
+* 録画番組のメタ情報を収集し、all.json としてまとめる
 
-### createthumbs.exe
+### createthumbnail.exe
+30分に1回の周期で次の処理を繰り返します。
+* 録画が完了したTSファイルからサムネイル画像を抽出
+	* ffmpeg で番組開始10秒後のサムネイル画像を抽出する
+	* 何らかの理由でサムネイル画像を取得できない場合は、番組名をGoogle画像検索して1番上にヒットした画像をダウンロード、ImageMagick の convert を使って 640x360 にリサイズする。
+
 ### tvbooker.exe
-### check_setting.exe
+3時間に1回の周期で次の処理を繰り返します。
+* TvRockのWeb番組表の全番組に対して「予約」ボタンを押す
+
 ### httpserver.exe
-### tvcollector.exe
+ネットワークアダプタが複数ある場合は選択を促すメッセージを表示する。
+http://localhost:10080/ または http://<LAN内でのIPアドレス>:10080/ にてサービスを開始する。
+（LAN内の他のPCからも操作可能）
+
+<table>
+  <tr>
+    <th>URL</th>
+    <th>機能</th>
+  </tr>
+  <tr>
+    <td>http://localhost:10080/hello</td>
+    <td>サーバの生存確認を行う。ZenRockの応用ソフトを実装する際に使う。</td>
+  </tr>
+  <tr>
+    <td>http://localhost:10080/exec?cmd=getall</td>
+    <td>録画した全ての番組のメタ情報を集約している all.json をダウンロードする。</td>
+  </tr>
+  <tr>
+    <td>http://localhost:10080/exec?image=[番組ID]</td>
+    <td>番組のサムネイル画像を取得する。</td>
+  </tr>
+  <tr>
+    <td>http://localhost:10080/ui</td>
+    <td>録画した全ての番組をサムネイル・番組説明とともに一覧で表示する。</td>
+  </tr>
+  <tr>
+    <td>http://localhost:10080/ui?sid=[sid]&q=[検索ワード]</td>
+    <td>放送局のサービスID(sid)と検索ワードにヒットする番組の一覧を表示する。</td>
+  </tr>
+  <tr>
+    <td>http://localhost:10080/ui?watch=[番組ID]</td>
+    <td>サーバでVLCを起動し、該当する番組を再生する（現在はVLCのみに対応）。</td>
+  </tr>
+</table>
+
+
+### tvinfocollector.exe
+30分に1回の周期で次の処理を繰り返します。
+* 録画が完了した番組に対して、（プロジェクトが提供する）サーバにその番組情報を問い合わせ、json形式でダウンロードする。
 
 
 ## 動作実績
