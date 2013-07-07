@@ -16,20 +16,35 @@ ZenRockはTvRockと連携して全番組自動録画を実現するためのソ�
 
 1. TvRockで以下の項目を設定
 	* 「録画基本設定」→「ファイル名置換フォーマット」を「@CH@YY@MM@DD@SH@SM@SS」に変更
-		* ※録画した番組がずれる場合は「予約登録デフォルト値」を調整します
 		* ![TvRock:ファイル名置換フォーマットと予約登録デフォルト値](http://usi3.com/up/TvRock_setting1.png)
+		* ※録画した番組がずれる場合は「予約登録デフォルト値」を調整します
 	* 「チューナー」→「録画フォルダ」をこのシステム専用の録画用ディレクトリに設定
 		* 以降このディレクトリをRecordDirPathと呼びます
-		* http://usi3.com/up/TvRock_setting2.png
 		* ![TvRock:録画フォルダ](http://usi3.com/up/TvRock_setting2.png)
 
 2. setting.jsonを設定
-	* 録画用ディレクトリにwebフォルダをRecordDirPath/web/となるように配置
-3. start.batを起動
+	* RecordDirPath
+		* TvRockの録画フォルダとして指定したフォルダのパスを指定します
+	* TVRockURL
+		* TvRockのWeb番組表のURLを指定します
+	* TVRockPath
+		* tvrock.exe のパスを指定します．パスが通っている場合は"tvrock"だけでも大丈夫です．
+	* VLCPath
+		* vlc.exe のパスを指定します．パスが通っている場合は"vlc"だけでも大丈夫です．
+	* ImageMagickConvertPath
+		* ImageMagick の convert.exe があるパスを指定します．パスが通っている場合は"convert"だけでも大丈夫です．
+	* FFMpegPath
+		* ffmpeg.exe があるパスを指定します．パスが通っている場合は"ffmpeg"だけでも大丈夫です．
+	* ServiceIDs
+		* 放送局の名前（TvRockと同じ物，@CH）とそのサービスIDを指定します．
+	* DEBUG
+		* ソースコードを編集・実行したい場合にご利用ください．true，もしくは false を指定します．
+3. 録画用ディレクトリにwebフォルダをRecordDirPath/web/となるように配置
+4. start.batを起動
 	* もし設定にエラーがあるとシステムを起動せずに終了します．エラーメッセージにしたがって，setting.json を修正してください．
 	* 全録せずに見たい番組だけを録画したい場合は，start_without_tvbooker.bat を起動してください．
 	* 3つ（tvbookerを使わない場合は2つ）のウィンドウが開くので，しばらく見守ります．エラーが起きていなければ，全てのプログラムが動作し続けます．
-	*RecordDirPath に all.json が出力されていれば，Webインタフェースを利用可能です．http://localhost:10080/ui または http://[LAN内でのIPアドレス]:10080/ui（他のPCからもアクセス可能です）にアクセスし，録画した番組の視聴・検索を楽しんでください．
+	* RecordDirPath に all.json が出力されていれば，Webインタフェースを利用可能です．http://localhost:10080/ui または http://[LAN内でのIPアドレス]:10080/ui（他のPCからもアクセス可能です）にアクセスし，録画した番組の視聴・検索を楽しんでください．
 
 
 ### 依存ソフトウェア

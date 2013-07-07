@@ -1,0 +1,19 @@
+{
+"DEBUG":false,
+"RecordDirPath":"D:/RecordedTVs/",
+"TVRockURL":"http://localhost:8969/nobody/",
+"TVRockPath":"C:/apps/TV/TvRock/tvrock.exe",
+"VLCPath":"C:/apps/VLC/vlc.exe",
+"ImageMagickConvertPath":"C:/cygwin/bin/convert.exe",
+"FFMpegPath":"ffmpeg",
+"ServiceIDs":{
+  "ＮＨＫ総合":1024,
+  "ＮＨＫ教育":1032,
+  "日本テレビ":1040,
+  "ＴＢＳテレビ":1048,
+  "フジテレビ":1056,
+  "テレビ朝日":1064,
+  "テレビ東京":1072,
+  "放送大学":1088
+  }
+}
