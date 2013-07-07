@@ -45,7 +45,7 @@ ZenRockはTvRockと連携して全番組自動録画を実現するためのソ�
 
 ## 処理の流れ
 <p align="center">
-	![ZenRock:処理の流れ](http://usi3.com/up/ZenRockFlow.png)
+	<img src="http://usi3.com/up/ZenRockFlow.png" />
 </p>
 それぞれの実行ファイルの仕様は以下のとおりです．
 
