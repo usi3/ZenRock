@@ -69,5 +69,3 @@ exit 1 if wrong
 
 puts "All settings are correct."
 exit 0
-
-
