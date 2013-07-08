@@ -11,8 +11,8 @@ if not %errorlevel% == 0 (
 
 :PROCESS
 	call main.exe
-	call createthumbnail.exe
 	call tvinfocollector.exe
+	call createthumbnail.exe
 	timeout 1800
 	goto :PROCESS
 

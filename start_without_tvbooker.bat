@@ -1,6 +1,6 @@
 @echo off
 set LANG=ja_JP.UTF-8
-call check_setting.exe
+call checksetting.exe
 
 if not %errorlevel% == 0 (
 	echo setting.json にエラーがあります。setting.json を修正してから再度起動して下さい。
@@ -10,8 +10,8 @@ if not %errorlevel% == 0 (
 
 :PROCESS
 	call main.exe
-	call createthumbnail.exe
 	call tvinfocollector.exe
+	call createthumbnail.exe
 	timeout 1800
 	goto :PROCESS
 

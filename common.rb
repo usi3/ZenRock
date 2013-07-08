@@ -19,7 +19,7 @@ end
 DEBUG = config["DEBUG"]
 
 $mediaDir = config["RecordDirPath"]
-$tvnumbers = config["ServiceIDs"] # テレビ局の名前（TVRockの@CH）とテレビのチャンネル番号の対応
+$tvnumbers = config["ServiceIDs"] # テレビ局の名前（TVRockの@CH）とテレビのサービスIDの対応
 $tvrockurl = config["TVRockURL"]
 $tvrockpath = config["TVRockPath"]
 $vlcpath = config["VLCPath"]
