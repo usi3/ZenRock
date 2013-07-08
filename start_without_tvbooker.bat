@@ -9,10 +9,10 @@ if not %errorlevel% == 0 (
 	start httpserver.exe
 
 :PROCESS
-	call main.exe
+	call cleaner.exe
 	call tvinfocollector.exe
-	call createthumbnail.exe
+	call thumbnailcreator.exe
+	call organizer.exe
 	timeout 1800
 	goto :PROCESS
-
 )
