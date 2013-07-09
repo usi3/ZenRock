@@ -80,7 +80,7 @@ TvRock のWeb番組表が有効になっていない場合にもエラーを出�
 
 ### start.bat
 checksetting.exe が終了コード0（エラーなし）で終了した場合に，
-以降のプログラム（main.exe, createthumbs.exe, tvcollector.exe, httpserver.exe, tvbooker.exe）を起動します．
+以降のプログラム（cleaner.exe, tvcollector.exe, thumbnailcreator.exe, organizer.exe, httpserver.exe, tvbooker.exe）を起動します．
 
 ### cleaner.exe
 次の処理を行います．
@@ -92,7 +92,7 @@ checksetting.exe が終了コード0（エラーなし）で終了した場合�
 次の処理を行います．
 * 録画が完了した番組の番組情報を，（プロジェクトが提供する）サーバに問い合わせ，json形式でダウンロードする．
 
-### createthumbnail.exe
+### thumbnailcreator.exe
 次の処理を行います．
 
 1. 録画が完了したTSファイルからサムネイル画像を抽出
