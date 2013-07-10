@@ -122,6 +122,7 @@ http://localhost:10080/ または http://[LAN内でのサーバのIPアドレス
 	* 録画した全ての番組をサムネイル・番組説明とともに一覧で表示する．
 * http://localhost:10080/ui?sid=[sid]&q=[検索ワード]
 	* 放送局のサービスID(sid)と検索ワードにヒットする番組の一覧を表示する．
+	* 検索はスペース区切りでOR検索，単語の先頭に"-"を付けると除外検索
 * http://localhost:10080/ui?watch=[番組ID]
 	* サーバでVLCを起動し，該当する番組を再生する（現在はVLCのみに対応）．
 
@@ -138,3 +139,7 @@ http://localhost:10080/ または http://[LAN内でのサーバのIPアドレス
 
 ## 動作実績
 * Dell XPS 8500をベースにPLEX PX-W3PE×2, PLEX PX-Q3PE, 3TB SATA HDD×2（スパンボリュームとして運用）を追加したPCにて2012年6月～現在まで運用中
+
+## 問題が発生したら
+Issueトラッカーよりご連絡下さい
+https://github.com/usi3/ZenRock/issues
