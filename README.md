@@ -141,5 +141,6 @@ http://localhost:10080/ または http://[LAN内でのサーバのIPアドレス
 * Dell XPS 8500をベースにPLEX PX-W3PE×2, PLEX PX-Q3PE, 3TB SATA HDD×2（スパンボリュームとして運用）を追加したPCにて2012年6月～現在まで運用中
 
 ## 問題が発生したら
-Issueトラッカーよりご連絡下さい
+このリポジトリのIssue Trackerよりご連絡下さい．
+
 https://github.com/usi3/ZenRock/issues
