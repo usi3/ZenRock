@@ -68,11 +68,38 @@ class UIServlet < WEBrick::HTTPServlet::AbstractServlet
     
     all.sort!{|a, b| b["id"].to_s[4..-1] <=> a["id"].to_s[4..-1]} # 新しい順
 
+    if search != nil
+      words = search.split(" ")
+      exwords = words.select{|w| w =~ /^-/}
+      words -= exwords
+      exwords.map!{|w| w.gsub(/^-/, "")}
+      #
+      puts "words=#{words}"
+      puts "exwords=#{exwords}"
+    end
+
     lis = []
     all.each do |tv|
       # search
       if search != nil
-        next unless tv["title"].include?(search) || tv["genre"].include?(search) || tv["description"].include?(search) || tv["contents"].include?(search)
+        if words.size > 0
+          hit = false
+          words.each do |w|
+            break if hit
+            hit = tv["title"].include?(w) || tv["genre"].include?(w) || tv["description"].include?(w) || tv["contents"].include?(w)
+          end
+          next if !hit
+        end
+        
+        if exwords.size > 0
+          neghit = false
+          exwords.each do |w|
+            break if neghit
+            neghit = tv["title"].include?(w) || tv["genre"].include?(w) || tv["description"].include?(w) || tv["contents"].include?(w)
+          end
+          next if neghit
+        end
+        
       end
 
       # sid
@@ -125,7 +152,8 @@ class UIServlet < WEBrick::HTTPServlet::AbstractServlet
     $tvnumbers.keys.each do |key|
       nav << "<li><a href=\"ui?sid=#{$tvnumbers[key]}\">#{key}</a></li>"
     end
-    ret << File.open("head.htm", "r").read.gsub("%NAV%", nav)
+    
+    ret << File.open("head.htm", "r").read.gsub("%NAV%", nav).gsub("%INPUT_TEXT%", search == nil ? "" : search)
     html = convertAllToHTML(sid, search)
     ret << html
     ret << File.open("tail.htm", "r").read
