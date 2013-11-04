@@ -58,14 +58,20 @@ ZenRockはTvRockと連携して全番組自動録画を実現するためのソ�
 
 ### 依存ソフトウェア
 このプログラムは次のソフトウェアを利用します．各ソフトウェアはできるだけ最新のバージョンを導入してください．
+* Cygwin (binutils, gcc, gcc-core, g++, make, ruby, imagemagick)
+* Rubyの次のライブラリ
+	* json
+	* addressable
+	* hpricot
+	* webrick
 * TvRock
 	* Ver 0.9t8で動作確認
 * RecTest
 * ffmpeg
-* ImageMagick(convertコマンドを使用します)
 * VLC
 
-※Rubyなしで使い始められるようにソースコードに加えて実行ファイルも配布しています
+※Rubyなしで使い始められるようにソースコードに加えて実行ファイルを配布していましたが，これは間違いで，現在はバイナリの実行にもプログラムの開発環境が必要な状況です．
+
 
 ## 処理の流れ
 <p align="center">
